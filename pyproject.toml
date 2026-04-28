@@ -1,6 +1,6 @@
 [project]
 name = "spillway"
-version = "1.0.0"
+version = "0.0.0"
 description = "An automation tool that ingests multi-account AWS Security Hub findings, condenses duplicate alerts, and automatically generates prioritized Jira tasks."
 readme = "README.md"
 requires-python = ">=3.13"
@@ -49,6 +49,7 @@ indent-style = "space"
 version_toml = ["pyproject.toml:project.version"]
 build_command = "uv build"
 commit_parser = "conventional"
+allow_zero_version = true
 
 [tool.semantic_release.publish]
 upload_to_vcs_release = true
@@ -57,3 +58,6 @@ upload_to_vcs_release = true
 allowed_tags = ["feat", "fix", "perf", "build", "chore", "ci", "docs", "style", "refactor", "test"]
 minor_tags = ["feat"]
 patch_tags = ["fix", "perf"]
+
+[tool.semantic_release.changelog.default_templates]
+mask_initial_release = false
