@@ -1,0 +1,61 @@
+# ==========================================
+# Spillway Configuration
+# ==========================================
+# By default, Spillway looks for this file in your current working
+# directory (./spillway.yaml) or your home directory (~/.spillway.yaml).
+#
+# You can also place this file anywhere on your system and point to it
+# using the CLI flag: spillway triage --config /path/to/your/spillway.yaml
+#
+# Note: Command-line flags will always override these settings.
+
+# ------------------------------------------
+# Standard Options
+# ------------------------------------------
+
+# The AWS Region to query
+region: us-east-1
+
+# AWS SSO Profile name (leave commented out to use default environment credentials)
+# profile: security-audit-role
+
+# Safely run without creating actual Jira tickets
+dry_run: true
+
+# Only process findings matching these severities
+severities:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+
+# Restrict the scan to specific AWS Account IDs
+# (Leave empty or commented out to scan all accounts the role can access)
+accounts:
+  - "123456789012"
+  - "987654321098"
+
+# ------------------------------------------
+# Advanced Options (Boto3 OCSF Filters)
+# ------------------------------------------
+# This block acts as an escape hatch. If defined, it translates directly into
+# the boto3 get_findings_v2 'Filters' parameter for complex querying.
+
+# CompositeFilters:
+#   - Operator: AND
+#
+#     # Filter out a known noisy sandbox account
+#     StringFilters:
+#       - FieldName: cloud.account.uid
+#         Filter:
+#           Value: "555555555555"
+#           Comparison: NOT_EQUALS
+#
+#     # Only look at findings generated in the last 14 days
+#     DateFilters:
+#       - FieldName: finding_info.created_time_dt
+#         Filter:
+#           DateRange:
+#             Value: 14
+#             Unit: DAYS
+#
+# CompositeOperator: AND
