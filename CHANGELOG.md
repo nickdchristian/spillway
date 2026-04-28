@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.2.0 (2026-04-28)
+
+### Features
+
+- **aws**: Implement Security Hub client and finding pagination
+  ([#5](https://github.com/nickdchristian/spillway/pull/5),
+  [`b6aaf75`](https://github.com/nickdchristian/spillway/commit/b6aaf750f3dba9c369d1a3f4961eb743f2d29eb7))
+
+
 ## v0.1.0 (2026-04-28)
 
 ### Bug Fixes
