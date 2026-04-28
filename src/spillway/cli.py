@@ -3,7 +3,7 @@ from typing import Annotated
 import typer
 from rich.console import Console
 
-from spillway.aws.filters import _build_filters
+from spillway.aws.findings import get_findings
 from spillway.config import load_configuration
 
 app = typer.Typer()
@@ -33,4 +33,6 @@ def triage(
     config = load_configuration(
         explicit_file=config_file, cli_region=region, cli_severities=severity
     )
-    console.print_json(data=_build_filters(config))
+
+    findings = list(get_findings(config))
+    console.print_json(data=findings)
