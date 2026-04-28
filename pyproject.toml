@@ -47,7 +47,7 @@ indent-style = "space"
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
-build_command = "uv lock --upgrade-package spillway && git add uv.lock && uv build"
+build_command = "uv build"
 commit_parser = "conventional"
 
 [tool.semantic_release.publish]

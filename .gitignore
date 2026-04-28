@@ -93,7 +93,6 @@ pdm.toml
 .pdm-python
 .pdm-build/
 .pixi
-uv.lock
 
 # PEP 582
 __pypackages__/
